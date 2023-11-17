@@ -1,6 +1,8 @@
 import MDAnalysis as mda
 
-u = mda.Universe("conf.pdb", "md_iso_E.xtc")
+electric_field = input()
+
+u = mda.Universe("conf.pdb", "md_iso_" + electric_field + ".xtc")
 step = 0
 order_params = []
 times  = []
@@ -40,4 +42,4 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 plt.plot(times, order_params)
 plt.show()
-fig.savefig("order_parameter_e.png")
+fig.savefig("order_parameter_" + electric_field + ".png")

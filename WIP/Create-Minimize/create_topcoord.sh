@@ -45,7 +45,7 @@ cp ${name}.top ${name}_bck.top
 cp ${PATH_TO_FILES}/template.top ${name}.top
 sed -i "s/NEWMOLECULENAME/${name}/g" ${name}.top
 
-$GMX editconf -f ${name}.gro -o ${name}.gro -d 0.1
+$GMX editconf -f ${name}.gro -o ${name}.gro -d 1.0
 $GMX editconf -f ${name}.gro -o ${name}.gro -box 100 100 100 -noc
 $GMX grompp -f em.mdp -c ${name}.gro -p ${name}.top -o ${name}_em.tpr
 $GMX mdrun -deffnm ${name}_em
