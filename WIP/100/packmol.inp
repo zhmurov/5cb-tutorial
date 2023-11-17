@@ -1,0 +1,8 @@
+tolerance 2.0
+filetype pdb
+output conf.pdb
+
+structure ../trappeua.ff/liquidcrystals/5CB.pdb
+number 100
+inside box 0. 0. 0. 40. 40. 40. 
+end structure
