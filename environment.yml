@@ -16,5 +16,4 @@ dependencies:
   - openmpi
   - cmake
   - MDAnalysis
-  - matplotlib
   - unzip
