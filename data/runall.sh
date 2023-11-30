@@ -26,14 +26,14 @@ cp ../input/topol.top .
 
 $GMX editconf -f conf.pdb -o conf.gro -box 4 4 4
 $GMX grompp -f ../input/em.mdp -c conf.gro -o em.tpr
-$GMX mdrun -deffnm em
+$GMX mdrun -deffnm em -v
 
 $GMX grompp -f ../input/nvt.mdp -c em.gro -o nvt.tpr
-$GMX mdrun -deffnm nvt
+$GMX mdrun -deffnm nvt -v
 $GMX grompp -f ../input/npt.mdp -c nvt.gro -o npt.tpr
-$GMX mdrun -deffnm npt
+$GMX mdrun -deffnm npt -v
 
-ELECTRIC_FIELDS="0.00 0.01 0.1 1.0 2.0 5.0 10.0 50.0"
+ELECTRIC_FIELDS="0.00 0.01 0.10 0.20 0.50 1.0 2.0 5.0 10.0 50.0"
 
 for ELECTRIC_FIELD in $ELECTRIC_FIELDS; do
 
@@ -41,6 +41,6 @@ for ELECTRIC_FIELD in $ELECTRIC_FIELDS; do
     sed -i "s/ELECTRIC_FIELD/${ELECTRIC_FIELD}/g" md_iso_${ELECTRIC_FIELD}.mdp
 
     $GMX grompp -f md_iso_${ELECTRIC_FIELD}.mdp -c npt.gro -o md_iso_${ELECTRIC_FIELD}.tpr
-    $GMX mdrun -deffnm md_iso_${ELECTRIC_FIELD}
+    $GMX mdrun -deffnm md_iso_${ELECTRIC_FIELD} -v
     
 done
