@@ -33,7 +33,7 @@ $GMX mdrun -deffnm nvt
 $GMX grompp -f ../input/npt.mdp -c nvt.gro -o npt.tpr
 $GMX mdrun -deffnm npt
 
-ELECTRIC_FIELDS="0.01 0.1 1.0 2.0 5.0 10.0 50.0"
+ELECTRIC_FIELDS="0.00 0.01 0.1 1.0 2.0 5.0 10.0 50.0"
 
 for ELECTRIC_FIELD in $ELECTRIC_FIELDS; do
 
